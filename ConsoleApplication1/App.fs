@@ -17,11 +17,14 @@ let log_enable (b) = failwith "never" |> ignore
 [<JS; JSEmit("alert({0})")>]
 let hello (a) = failwith "never" |> ignore
 
+[<JS; JSEmit("global.GranularApplication1.MainWindow.SetOnMightyButton1Click({0})")>]
+let SetOnMightyButton1Click (a) = failwith "never" |> ignore
+
 let main() = 
     log_enable ()
     log_info ( "application started" )
-    jq?MightyButton1.click(
+    SetOnMightyButton1Click(
         fun _ -> 
             log_info ( "button clicked" )
             hello( "Clicked!" ) :> obj
-    ) |> ignore
+    )|> ignore

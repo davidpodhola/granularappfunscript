@@ -19,6 +19,7 @@ let main argv =
 </head>
 <body>
     <script type="text/javascript">
+        function ExclamationMark() { return "!" };
         (function () {
             'use strict';
 
@@ -29,5 +30,5 @@ let main argv =
     </script>
 </body>
 </html>
-    """ <| FunScript.Compiler.compileWithoutReturn <@ App.main() @>
+    """ <| FunScript.Compiler.compileWithoutReturn <@ App.main() @> 
     0

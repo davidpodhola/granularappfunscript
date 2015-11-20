@@ -16,22 +16,27 @@ namespace GranularApplication1
     /// </summary>
     public partial class MainWindow : Window
     {
-        private Action onMightyButton1Click;
-
         public MainWindow()
         {
             InitializeComponent();
         }
 
+#if WEB
+        [System.Runtime.CompilerServices.InlineCode("handleButtonClick({sender}, {e})")]
+        private static void HandleButtonClick(object sender, RoutedEventArgs e)
+        {
+            //
+        }
+#else
+        private static void HandleButtonClick(object sender, RoutedEventArgs e)
+        {
+        }
+#endif
+
         private void MightyButton1_Click(object sender, RoutedEventArgs e)
         {
-            if (onMightyButton1Click != null)
-                onMightyButton1Click();
+            HandleButtonClick(sender, e);
         }
 
-        public void SetOnMightyButton1Click(Action OnMightyButton1Click)
-        {
-            onMightyButton1Click = OnMightyButton1Click;
-        }
     }
 }

@@ -19,7 +19,7 @@ let main argv =
 </head>
 <body>
     <script type="text/javascript">
-        function ExclamationMark() { return "!" };
+        function handleButtonClick(sender, e) { log.info(sender);log.info(e); };
         (function () {
             'use strict';
 
